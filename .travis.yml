@@ -6,7 +6,12 @@ cache: npm
 branches:
   only:
     - master # build master branch only
+before_install:
+    - npm install hexo-cli -g
+install:
+  npm install
 script:
+  - hexo clean
   - hexo generate # generate static files
 deploy:
   provider: pages
