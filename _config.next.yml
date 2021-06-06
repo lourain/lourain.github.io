@@ -1,1 +1,18 @@
 highlight_theme: normal
+canvas_nest: true //开启动画
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+  categories: /categories
+
+# Social links
+social:
+  GitHub: https://github.com/lourain
+# Social Icons
+social_icons:
+  enable: true
+  # Icon Mappings
+  GitHub: github
+
+favicon: favicon.ico
