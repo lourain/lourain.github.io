@@ -15,4 +15,6 @@ social_icons:
   # Icon Mappings
   GitHub: github
 
-favicon: favicon.ico
+favicon:
+  small: /images/favicon.ico
+  medium: /images/favicon.ico

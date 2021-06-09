@@ -53,10 +53,16 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/function%20small()%20%7B%20%5Bnative%20code%5D%20%7D?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -73,16 +79,16 @@
 
 
 
-<meta name="description" content="起因是最近做的一个项目，国外的，还得兼容IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome是完全可以通过new Date()进行解析，可是在IE10下直接报错，从此踏上了趟坑之旅。。">
+<meta name="description" content="起因是最近做的一个项目，国外的，还得兼容 IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome 是完全可以通过 new Date()进行解析，可是在 IE10 下直接报错，从此踏上了趟坑之旅。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对时间转化的一些思考">
 <meta property="og:url" content="https://lourain.github.io/2021/06/05/%E5%AF%B9%E6%97%B6%E9%97%B4%E8%BD%AC%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="Dorr">
-<meta property="og:description" content="起因是最近做的一个项目，国外的，还得兼容IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome是完全可以通过new Date()进行解析，可是在IE10下直接报错，从此踏上了趟坑之旅。。">
+<meta property="og:description" content="起因是最近做的一个项目，国外的，还得兼容 IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome 是完全可以通过 new Date()进行解析，可是在 IE10 下直接报错，从此踏上了趟坑之旅。。">
 <meta property="og:locale">
 <meta property="og:image" content="https://lourain.github.io/images/screenshot/time.png">
 <meta property="article:published_time" content="2021-06-05T01:43:32.000Z">
-<meta property="article:modified_time" content="2021-06-06T02:04:27.322Z">
+<meta property="article:modified_time" content="2021-06-09T07:35:33.462Z">
 <meta property="article:author" content="Dorr">
 <meta property="article:tag" content="IE">
 <meta property="article:tag" content="Javascript">
@@ -339,19 +345,19 @@
       
 
       
-        <p>起因是最近做的一个项目，国外的，还得兼容IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome是完全可以通过new Date()进行解析，可是在IE10下直接报错，从此踏上了趟坑之旅。。</p>
+        <p>起因是最近做的一个项目，国外的，还得兼容 IE10。对于这种格式（yyyy-MM-dd hh:mm:ss），chrome 是完全可以通过 new Date()进行解析，可是在 IE10 下直接报错，从此踏上了趟坑之旅。。</p>
 <span id="more"></span>
 
-<h3 id="为什么在IE下就是解析不了呢？"><a href="#为什么在IE下就是解析不了呢？" class="headerlink" title="为什么在IE下就是解析不了呢？"></a>为什么在IE下就是解析不了呢？</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN</a>上这么说的:</p>
+<h3 id="为什么在-IE-下就是解析不了呢？"><a href="#为什么在-IE-下就是解析不了呢？" class="headerlink" title="为什么在 IE 下就是解析不了呢？"></a>为什么在 IE 下就是解析不了呢？</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN</a>上这么说的:</p>
 <blockquote>
 <p><strong>dateString</strong></p>
 <blockquote>
 <p>表示日期的字符串值。该字符串应该能被 Date.parse() 正确方法识别（即符合 IETF-compliant RFC 2822 timestamps 或 version of ISO8601）</p>
 </blockquote>
 </blockquote>
-<p>我猜是不是IE并不认识这样的格式呢，<strong>看下ECMAScript的标准定义</strong><a target="_blank" rel="noopener" href="https://262.ecma-international.org/5.1/#sec-15.9.1.15">version of ISO8601</a></p>
+<p>我猜是不是 IE 并不认识这样的格式呢，<strong>看下 ECMAScript 的标准定义</strong><a target="_blank" rel="noopener" href="https://262.ecma-international.org/5.1/#sec-15.9.1.15">version of ISO8601</a></p>
 <blockquote>
-<p><strong>Date Time String Format</strong><br>ECMAScript defines a string interchange format for date-times based upon a simplification of the ISO 8601 Extended Format. The format is as follows: <em><strong>YYYY-MM-DDTHH:mm:ss.sssZ</strong></em></p>
+<p><strong>Date Time String Format</strong><br>ECMAScript defines a string interchange format for date-times based upon a simplification of the ISO 8601 Extended Format. The format is as follows: <strong><em>YYYY-MM-DDTHH:mm:ss.sssZ</em></strong></p>
 <blockquote>
 <p>Where the fields are as follows:</p>
 <p>YYYY is the decimal digits of the year 0000 to 9999 in the Gregorian calendar.</p>
@@ -360,7 +366,7 @@
 </ul>
 <p>MM is the month of the year from 01 (January) to 12 (December).</p>
 <p>DD is the day of the month from 01 to 31.</p>
-<p><em><strong>T “T” appears literally in the string, to indicate the beginning of the time element.</strong></em></p>
+<p><strong><em>T “T” appears literally in the string, to indicate the beginning of the time element.</em></strong></p>
 <p>HH is the number of complete hours that have passed since midnight as two decimal digits from 00 to 24.</p>
 <p>: “:” (colon) appears literally twice in the string.</p>
 <p>mm is the number of complete minutes since the start of the hour as two decimal digits from 00 to 59.</p>
@@ -373,21 +379,22 @@
 <p>THH:mm<br>THH:mm:ss<br>THH:mm:ss.sss<br>All numbers must be base 10. If the MM or DD fields are absent “01” is used as the value. If the HH, mm, or ss fields &gt;&gt; are absent “00” is used as the value and the value of an absent sss field is “000”. The value of an absent time zone &gt;&gt; offset is “Z”.</p>
 </blockquote>
 </blockquote>
-<p>❤️ <em><strong>YYYY-MM-DDTHH:mm:ss.sssZ 这样的格式才是标准格式，中间间隔用T。</strong></em> 修改后，IE10上能正常解析出来</p>
-<h3 id="为什么new-Date-‘1970-01-01’-，解析的时间是08-00-00"><a href="#为什么new-Date-‘1970-01-01’-，解析的时间是08-00-00" class="headerlink" title="为什么new Date(‘1970-01-01’)，解析的时间是08:00:00?"></a>为什么new Date(‘1970-01-01’)，解析的时间是08:00:00?</h3><p>在此之前我们要了解下什么是UTC与GMT：</p>
+<p>❤️ <strong><em>YYYY-MM-DDTHH:mm:ss.sssZ 这样的格式才是标准格式，中间间隔用 T。</em></strong> 修改后，IE10 上能正常解析出来</p>
+<h3 id="为什么-new-Date-‘1970-01-01’-，解析的时间是-08-00-00"><a href="#为什么-new-Date-‘1970-01-01’-，解析的时间是-08-00-00" class="headerlink" title="为什么 new Date(‘1970-01-01’)，解析的时间是 08:00:00?"></a>为什么 new Date(‘1970-01-01’)，解析的时间是 08:00:00?</h3><p>在此之前我们要了解下什么是 UTC 与 GMT：</p>
 <blockquote>
-<p><strong>UTC</strong><br>协调世界时，又称世界统一时间、世界标准时间、国际协调时间。由于英文（CUT）和法文（TUC）的缩写不同，作为妥协，简称UTC。</p>
+<p><strong>UTC</strong><br>协调世界时，又称世界统一时间、世界标准时间、国际协调时间。由于英文（CUT）和法文（TUC）的缩写不同，作为妥协，简称 UTC。</p>
 </blockquote>
 <blockquote>
-<p><strong>GMT</strong><br>格林尼治标准时间（Greenwich Mean Time，GMT）是指位于伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。<br>而UTC是基于标准的GMT提供的准确时间。为了方便，在不需要精确到秒的情况下，通常将GMT 和UTC 视作等同。但UTC 更加科学更加精确，它是以原子时为基<br>础，在时刻上尽量接近世界时的一种时间计量系统。它的出现是现代社会对于精确计时的需要。</p>
+<p><strong>GMT</strong><br>格林尼治标准时间（Greenwich Mean Time，GMT）是指位于伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。<br>而 UTC 是基于标准的 GMT 提供的准确时间。为了方便，在不需要精确到秒的情况下，通常将 GMT 和 UTC 视作等同。但 UTC 更加科学更加精确，它是以原子时为基<br>础，在时刻上尽量接近世界时的一种时间计量系统。它的出现是现代社会对于精确计时的需要。</p>
 </blockquote>
 <p><em>但是为什么会出现的情况呢？</em></p>
-<p><img src="/images/screenshot/time.png"></p>
+<img src="/images/screenshot/time.png" class="full-image"/>
+
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN</a>上有句提示：</p>
 <blockquote>
-<p><strong>dateString</strong><br>对 ISO 8601 格式的支持中，仅有日期的串 (例如 “1970-01-01”) <em><strong>会被处理为 UTC 而不是本地时间</strong></em>，与其他格式的串的处理不同。</p>
+<p><strong>dateString</strong><br>对 ISO 8601 格式的支持中，仅有日期的串 (例如 “1970-01-01”) **<em>会被处理为 UTC 而不是本地时间</em>**，与其他格式的串的处理不同。</p>
 </blockquote>
-<p>❤️ 而new Date(‘1970-01-01’)中的日期其实是被认为是<em>UTC时间1970-01-01 00:00:00</em>，也就是英国格林威治标准时间的0点。而北京在东8区（GMT+8），此时的北京时间应该是早上8:00，即1970-01-01 08:00:00。<em><strong>这个时刻是UTC时间的00:00:00(北京时间08:00:00),而不是我们期望的00:00:00</strong></em>.</p>
+<p>❤️ 而 new Date(‘1970-01-01’)中的日期其实是被认为是<em>UTC 时间 1970-01-01 00:00:00</em>，也就是英国格林威治标准时间的 0 点。而北京在东 8 区（GMT+8），此时的北京时间应该是早上 8:00，即 1970-01-01 08:00:00。<em><strong>这个时刻是 UTC 时间的 00:00:00(北京时间 08:00:00),而不是我们期望的 00:00:00</strong></em>.</p>
 
       
     </div>
@@ -420,15 +427,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/05/30/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/06/07/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -505,7 +512,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +534,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -570,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8IE%E4%B8%8B%E5%B0%B1%E6%98%AF%E8%A7%A3%E6%9E%90%E4%B8%8D%E4%BA%86%E5%91%A2%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么在IE下就是解析不了呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88new-Date-%E2%80%981970-01-01%E2%80%99-%EF%BC%8C%E8%A7%A3%E6%9E%90%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF08-00-00"><span class="nav-number">2.</span> <span class="nav-text">为什么new Date(‘1970-01-01’)，解析的时间是08:00:00?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8-IE-%E4%B8%8B%E5%B0%B1%E6%98%AF%E8%A7%A3%E6%9E%90%E4%B8%8D%E4%BA%86%E5%91%A2%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么在 IE 下就是解析不了呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-new-Date-%E2%80%981970-01-01%E2%80%99-%EF%BC%8C%E8%A7%A3%E6%9E%90%E7%9A%84%E6%97%B6%E9%97%B4%E6%98%AF-08-00-00"><span class="nav-number">2.</span> <span class="nav-text">为什么 new Date(‘1970-01-01’)，解析的时间是 08:00:00?</span></a></li></ol></div>
             
 
           </div>
