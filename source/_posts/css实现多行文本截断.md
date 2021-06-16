@@ -60,11 +60,11 @@ tags:
 ```
 
 图中蓝色的就是
-![]/images/screenshot/微信截图\_20210609142628.pn)
+![](/images/screenshot/微信截图\_20210609142628.pn)
 
 但是我们需要放在右下角，我们试一下 **margin-top**
 
-![]/images/screenshot/微信截图\_20210609143252.pn)
+![](/images/screenshot/微信截图\_20210609143252.pn)
 可以看到，虽然省略号的蓝色方块到了右下角，但是文本却没有环绕按钮上方的空间，空出了一大截，无能为力了吗？
 
 我们可以利用一下**clear**，[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear)上这么说的：
