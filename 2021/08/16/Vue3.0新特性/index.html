@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Vue,Javascript," />
 
 
 
@@ -79,17 +79,24 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="经过了漫长的迭代，Vue 3.0 终于在上 2020-09-18 发布了，带了翻天覆地的变化，使用了 Typescript 进行了大规模的重构，带来了 Composition API RFC 版本，类似 React Hook 一样的写 Vue，可以自定义自己的 hook ，让使用者更加的灵活，接下来总结一下 vue 3.0 带来的部分新特性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://lourain.github.io/2021/07/23/hello-world/index.html">
+<meta property="og:title" content="Vue3.0新特性">
+<meta property="og:url" content="https://lourain.github.io/2021/08/16/Vue3.0%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Dorr">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="经过了漫长的迭代，Vue 3.0 终于在上 2020-09-18 发布了，带了翻天覆地的变化，使用了 Typescript 进行了大规模的重构，带来了 Composition API RFC 版本，类似 React Hook 一样的写 Vue，可以自定义自己的 hook ，让使用者更加的灵活，接下来总结一下 vue 3.0 带来的部分新特性。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-07-23T08:18:59.581Z">
-<meta property="article:modified_time" content="2021-07-23T08:18:59.581Z">
+<meta property="og:image" content="https://lourain.github.io/images/screenshot/patch-flag.png">
+<meta property="og:image" content="https://lourain.github.io/images/screenshot/hoistStatic.png">
+<meta property="og:image" content="https://lourain.github.io/images/screenshot/cacheHandler1.png">
+<meta property="og:image" content="https://lourain.github.io/images/screenshot/ssr.png">
+<meta property="article:published_time" content="2021-08-16T11:13:48.000Z">
+<meta property="article:modified_time" content="2021-08-16T09:54:58.093Z">
 <meta property="article:author" content="Dorr">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lourain.github.io/images/screenshot/patch-flag.png">
 
 
 
@@ -119,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://lourain.github.io/2021/07/23/hello-world/"/>
+  <link rel="canonical" href="https://lourain.github.io/2021/08/16/Vue3.0新特性/"/>
 
 
 
 
 
-  <title>Hello World | Dorr</title>
+  <title>Vue3.0新特性 | Dorr</title>
   
 
 
@@ -252,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lourain.github.io/2021/07/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://lourain.github.io/2021/08/16/Vue3.0%E6%96%B0%E7%89%B9%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -269,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Vue3.0新特性</h1>
         
 
         <div class="post-meta">
@@ -281,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-23T08:18:59+00:00">
-                2021-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-16T11:13:48+00:00">
+                2021-08-16
               </time>
             
 
@@ -304,8 +311,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/test/" itemprop="url" rel="index">
-                    <span itemprop="name">test</span>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -341,21 +348,37 @@
       
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <p>经过了漫长的迭代，Vue 3.0 终于在上 2020-09-18 发布了，带了翻天覆地的变化，使用了 Typescript 进行了大规模的重构，带来了 Composition API RFC 版本，类似 React Hook 一样的写 Vue，可以自定义自己的 hook ，让使用者更加的灵活，接下来总结一下 vue 3.0 带来的部分新特性。</p>
 <span id="more"></span>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>1.setup()<br>2.ref()<br>3.reactive()<br>4.isRef()<br>5.toRefs()<br>6.computed()<br>7.watch()<br>8.LifeCycle Hooks(新的生命周期)<br>9.Template refs<br>10.globalProperties<br>11.Suspense</p>
+<h2 id="Vue2-与-Vue3-的对比"><a href="#Vue2-与-Vue3-的对比" class="headerlink" title="Vue2 与 Vue3 的对比"></a>Vue2 与 Vue3 的对比</h2><ul>
+<li>用proxy代理替代了defineProperty来实现数据的双向绑定。<a href="/2021/07/23/Vue%E6%A0%B8%E5%BF%83%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"><em>剔除了defineProperty的一些诟病</em></a></li>
+<li>对 TypeScript 支持不友好（所有属性都放在了 this 对象上，难以推倒组件的数据类型）</li>
+<li>大量的 API 挂载在 Vue 对象的原型上，难以实现 TreeShaking。</li>
+<li>架构层面对跨平台 dom 渲染开发支持不友好</li>
+<li>CompositionAPI。受 ReactHook 启发</li>
+<li>更方便的支持了 jsx</li>
+<li>Vue 3 的 Template 支持多个根标签，Vue 2 不支持</li>
+<li>对虚拟 DOM 进行了重写、对模板的编译进行了优化操作…</li>
+</ul>
+<h3 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h3><p>在<code>Virtual Dom</code>方面，Vue3 重新审视了<code>Virtual Dom</code>，更改了自身对于 <code>Virtual Dom</code>的对比算法，在 Vue2 中的<code>Virtual Dom</code>每次更新，都会跟上一次缓存的虚拟节点进行全量的对比。<strong>而在 Vue3 中，diff 算法会忽略所有的静态节点，只对有<code>patch Flag</code>的动态节点进行对比</strong>，尽管 <code>JavaScript</code> 做 <code>Vdom</code> 的对比已经非常的快，但是 <code>patch Flag</code> 的出现还是让 Vue3 的 <code>Vdom</code> 的性能得到了很大的提升，尤其是在针对大组件的时候。</p>
+<p>推荐一个网站: <a target="_blank" rel="noopener" href="https://vue-next-template-explorer.netlify.app/">https://vue-next-template-explorer.netlify.app/</a></p>
+<h4 id="patch-flag"><a href="#patch-flag" class="headerlink" title="patch flag"></a>patch flag</h4><p>可以看到图中左侧动态绑定 msg 的 span 有一处注释，官方叫它<code>patch flag</code>，在与上次虚拟节点进行对比时候，只对比带有<code>patch flag</code>的节点，并且可以通过<code>flag</code>的信息得知当前节点要对比的具体内容，不同的值对应不同的比对内容，例子中的是 1，代表<code>TEXT</code>。</p>
+<p><img src="/images/screenshot/patch-flag.png"></p>
+<h4 id="hoistStatic-静态提升"><a href="#hoistStatic-静态提升" class="headerlink" title="hoistStatic 静态提升"></a>hoistStatic 静态提升</h4><p>把静态的节点进行提升，可以看到所有的静态 span 都被拿到了渲染函数体外面，也就是说在应用第一次的启动被创建了一次后，之后这些虚拟节点会在每次渲染时候被不停的复用，这样就免去了重复的创建节点，大型应用会受益于这个改动，免去了重复的创建操作，优化了运行时候的内存占用。</p>
+<p><img src="/images/screenshot/hoistStatic.png"></p>
+<h4 id="cacheHandlers-事件侦听器缓存"><a href="#cacheHandlers-事件侦听器缓存" class="headerlink" title="cacheHandlers 事件侦听器缓存"></a>cacheHandlers 事件侦听器缓存</h4><p>第一张是不使用 <code>cacheHandlers</code>，每次渲染更新时，都会对事件进行一次绑定</p>
+<p><img src="/images/screenshot/cacheHandler1.png"></p>
+<p>使用了<code>cacheHandler</code> ,第一次更新的时候，会将<code>onClick</code>函数的储存位置变成了缓存的形式。也就是说 当你的页面在不断的更新的时候，你的<strong>事件侦听器并不会重复地销毁再创建</strong>，而是以缓存的形式存在，这使 Vue3 在性能方面又有了一个出彩的地方。</p>
+<blockquote>
+<p>另外，Vue3 在 @click 中，直接手写内联函数也会被缓存起来，这一点是 react 做不到的。再加上 在 Vue3 中父组件的更新并不会直接触发子组件的更新，使得事件侦听器缓存在组件的层面可以提现出来更高的价值。</p>
+</blockquote>
+<h4 id="ssr渲染"><a href="#ssr渲染" class="headerlink" title="ssr渲染"></a>ssr渲染</h4><p>当有大量静态的内容时候，这些内容会被当做纯字符串推进一个buffer里面，即使存在动态的绑定，例如图中，会通过模板插值嵌入进去。这样会比通过虚拟dom来渲染的快上很多很多。</p>
+<p>当静态内容大到一定量级时候，会用_createStaticVNode方法在客户端去生成一个static node，这些静态node，会被直接innerHtml，就不需要创建对象，然后根据对象渲染。</p>
+<p><img src="/images/screenshot/ssr.png"></p>
+<h3 id="更小"><a href="#更小" class="headerlink" title="更小"></a>更小</h3><p>之前 vue 的代码，只有一个 vue 对象进来，所有的东西都在 vue 上，这样的话其实所有你没用到的东西也没有办法扔掉，因为它们全都已经被添加到 vue 这个全局对象上了。</p>
+<p>vue3 的话，一些不是每个应用都需要的功能，我们就做成了按需引入。用 ES module imports 按需引入，举例来说，内置组件像 keep-alive、transition，指令的配合的运行时比如 v-model、v-for、帮助函数，各种工具函数。比如 async component、使用 mixins、或者是 memoize 都可以做成按需引入。<strong>这配合tree shake使得Vue体积更小</strong></p>
 
       
     </div>
@@ -371,6 +394,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+        </div>
+      
 
       
       
@@ -380,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/06/16/%E5%86%B3%E5%AE%9A%E5%89%8D%E9%97%AE%E8%87%AA%E5%B7%B1%EF%BC%8C%E5%80%BC%E5%BE%97%E5%8E%BB%E8%B5%8C%E5%90%97%EF%BC%8C%E8%B5%8C%E5%BE%97%E8%B5%B7%E5%90%97%EF%BC%9F/" rel="next" title="决定前问自己，值得去赌吗，赌得起吗？">
-                <i class="fa fa-chevron-left"></i> 决定前问自己，值得去赌吗，赌得起吗？
+              <a href="/2021/08/16/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -389,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/07/23/Vue%E6%A0%B8%E5%BF%83%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/" rel="prev" title="Vue核心双向绑定原理解析">
-                Vue核心双向绑定原理解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,7 +496,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -534,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue2-%E4%B8%8E-Vue3-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.</span> <span class="nav-text">Vue2 与 Vue3 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%BF%AB"><span class="nav-number">1.1.</span> <span class="nav-text">更快</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#patch-flag"><span class="nav-number">1.1.1.</span> <span class="nav-text">patch flag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hoistStatic-%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="nav-number">1.1.2.</span> <span class="nav-text">hoistStatic 静态提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cacheHandlers-%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.3.</span> <span class="nav-text">cacheHandlers 事件侦听器缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssr%E6%B8%B2%E6%9F%93"><span class="nav-number">1.1.4.</span> <span class="nav-text">ssr渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%B0%8F"><span class="nav-number">1.2.</span> <span class="nav-text">更小</span></a></li></ol></li></ol></div>
             
 
           </div>
