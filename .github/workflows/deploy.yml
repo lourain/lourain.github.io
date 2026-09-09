@@ -1,0 +1,35 @@
+name: Hexo Build & Deploy
+
+# 仅当推送到 main 分支时触发构建
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          submodules: true # 重要：如果你的Hexo主题用git submodule，打开这个，否则主题丢失
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.18.0 # 和你本地Hexo使用的node版本保持一致
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Hexo generate public
+        run: |
+          npx hexo clean
+          npx hexo generate
+          touch public/.nojekyll # 防止GitHub Jekyll处理，避免资源丢失
+
+      - name: Deploy public folder to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # ✅ 就是你要的public文件夹
